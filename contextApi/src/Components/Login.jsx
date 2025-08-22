@@ -6,7 +6,8 @@ export const Login = () => {
   const { setUser } = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setUser({ username, password });
     console.log(username, password);
   };
@@ -22,7 +23,7 @@ export const Login = () => {
         placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleSubmit}>Login</button>
+      <button onClick={(e) => handleSubmit(e)}>Login</button>
     </>
   );
 };
